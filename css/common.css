@@ -11,5 +11,8 @@
 }
 
 body {
-  background-image: url(../images/Avantages3.jpg);
+  background-image: url("../images/Avantages3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
