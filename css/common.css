@@ -1,0 +1,25 @@
+.btn {
+  background-color: black;
+  color: violet;
+  padding: 30px;
+  display: flex;
+  margin: 200px auto;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+body {
+  background-color: darkgreen;
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.mt-3 {
+  visibility: hidden;
+}
