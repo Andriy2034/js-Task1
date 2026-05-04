@@ -148,33 +148,101 @@ const images = [
 const ulElem = document.querySelector(".gallery");
 
 const markup = images
-  .map((image) => {
-    return `<li class="gallery-item">
-  <a class="gallery-link" href="${image.original}">
-    <img
-      class="gallery-image"
-      src="${image.preview}"
-      data-source="${image.original}"
-    />
-  </a>
-</li>`;
-  })
+  .map(
+    ({ preview, original }, index) => `
+      <li class="gallery-item">
+        <a class="gallery-link" href="${original}">
+          <img
+            class="gallery-image"
+            src="${preview}"
+            data-index="${index}"
+            alt="Фото ${index + 1}"
+          />
+        </a>
+      </li>
+    `,
+  )
   .join("");
 
 ulElem.insertAdjacentHTML("beforeend", markup);
 
-ulElem.addEventListener("click", (e) => {
-  if (e.target.closest("a")) {
-    e.preventDefault();
-  }
-});
+let currentIndex = 0;
+let instance = null;
 
-ulElem.addEventListener("click", (e) => {
-  images.forEach((image) => {
-    if (e.target.dataset.source === image.original) {
-      const instance = basicLightbox.create(`
-        <img src="${image.original}">`);
-      instance.show();
-    }
+function createModalMarkup(index) {
+  return `
+    <div class="lightbox">
+      <button class="lightbox-btn lightbox-btn-left" type="button">&#8592;</button>
+      <img
+        class="lightbox-image"
+        src="${images[index].original}"
+        alt="Фото ${index + 1}"
+        
+      />
+      <button class="lightbox-btn lightbox-btn-right" type="button">&#8594;</button>
+      <p class="lightbox-counter">${index + 1} / ${images.length}</p>
+    </div>
+  `;
+}
+
+function openModal(index) {
+  currentIndex = index;
+
+  if (instance) {
+    instance.close();
+  }
+
+  instance = basicLightbox.create(createModalMarkup(currentIndex), {
+    onShow: (instance) => {
+      const modal = instance.element();
+      modal
+        .querySelector(".lightbox-btn-left")
+        .addEventListener("click", showPrevImage);
+      modal
+        .querySelector(".lightbox-btn-right")
+        .addEventListener("click", showNextImage);
+      document.addEventListener("keydown", handleKeydown);
+    },
+    onClose: () => {
+      document.removeEventListener("keydown", handleKeydown);
+      instance = null;
+    },
   });
+
+  instance.show();
+}
+
+function showNextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  openModal(currentIndex);
+}
+
+function showPrevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  openModal(currentIndex);
+}
+
+function handleKeydown(event) {
+  if (event.key === "ArrowRight") {
+    showNextImage();
+  }
+
+  if (event.key === "ArrowLeft") {
+    showPrevImage();
+  }
+
+  if (event.key === "Escape" && instance) {
+    instance.close();
+  }
+}
+
+ulElem.addEventListener("click", (event) => {
+  const imageElem = event.target.closest(".gallery-image");
+
+  if (!imageElem) {
+    return;
+  }
+
+  event.preventDefault();
+  openModal(Number(imageElem.dataset.index));
 });
