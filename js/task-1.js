@@ -143,6 +143,66 @@ const images = [
     preview: "./images/photo_33.jpg",
     original: "./images/photo_33.jpg",
   },
+  {
+    preview: "./images/photo_34.jpg",
+    original: "./images/photo_34.jpg",
+  },
+  {
+    preview: "./images/photo_35.jpg",
+    original: "./images/photo_35.jpg",
+  },
+  {
+    preview: "./images/photo_36.jpg",
+    original: "./images/photo_36.jpg",
+  },
+  {
+    preview: "./images/photo_37.jpg",
+    original: "./images/photo_37.jpg",
+  },
+  {
+    preview: "./images/photo_38.jpg",
+    original: "./images/photo_38.jpg",
+  },
+  {
+    preview: "./images/photo_39.jpg",
+    original: "./images/photo_39.jpg",
+  },
+  {
+    preview: "./images/photo_40.jpg",
+    original: "./images/photo_40.jpg",
+  },
+  {
+    preview: "./images/photo_41.jpg",
+    original: "./images/photo_41.jpg",
+  },
+  {
+    preview: "./images/photo_42.jpg",
+    original: "./images/photo_42.jpg",
+  },
+  {
+    preview: "./images/photo_43.jpg",
+    original: "./images/photo_43.jpg",
+  },
+  {
+    preview: "./images/photo_44.jpg",
+    original: "./images/photo_44.jpg",
+  },
+  {
+    preview: "./images/photo_45.jpg",
+    original: "./images/photo_45.jpg",
+  },
+  {
+    preview: "./images/photo_46.jpg",
+    original: "./images/photo_46.jpg",
+  },
+  {
+    preview: "./images/photo_47.jpg",
+    original: "./images/photo_47.jpg",
+  },
+  {
+    preview: "./images/photo_48.jpg",
+    original: "./images/photo_48.jpg",
+  },
 ];
 
 const ulElem = document.querySelector(".gallery");
