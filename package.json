@@ -1,0 +1,23 @@
+{
+  "name": "js-task1",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Andriy2034/js-Task1#readme",
+  "bugs": {
+    "url": "https://github.com/Andriy2034/js-Task1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andriy2034/js-Task1.git"
+  },
+  "license": "ISC",
+  "author": "Andriy Milevskiy <andrijmilevskij@gmail.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "simplelightbox": "^2.14.3"
+  }
+}

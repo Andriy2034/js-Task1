@@ -1,23 +1,23 @@
 const images = [
   {
-    preview: "./images/Adgara.jpeg",
-    original: "./images/Adgara.jpeg",
+    preview: "./images/Adgara.jpg",
+    original: "./images/Adgara.jpg",
   },
   {
     preview: "./images/Adgara2.jpg",
     original: "./images/Adgara2.jpg",
   },
   {
-    preview: "./images/ves1.jpeg",
-    original: "./images/ves1.jpeg",
+    preview: "./images/ves1.jpg",
+    original: "./images/ves1.jpg",
   },
   {
-    preview: "./images/ves2.jpeg",
-    original: "./images/ves2.jpeg",
+    preview: "./images/ves2.jpg",
+    original: "./images/ves2.jpg",
   },
   {
-    preview: "./images/ves3.jpeg",
-    original: "./images/ves3.jpeg",
+    preview: "./images/ves3.jpg",
+    original: "./images/ves3.jpg",
   },
   {
     preview: "./images/photo_1.jpg",
@@ -252,6 +252,9 @@ function openModal(index) {
     instance.close();
   }
 
+
+  
+
   instance = basicLightbox.create(createModalMarkup(currentIndex), {
     onShow: (instance) => {
       const modal = instance.element();
@@ -306,3 +309,4 @@ ulElem.addEventListener("click", (event) => {
   event.preventDefault();
   openModal(Number(imageElem.dataset.index));
 });
+
